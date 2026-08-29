@@ -5,9 +5,7 @@ handle: "brigittevaleria.dev"
 title: "PhD Student in Biological Sciences"
 short_title: "PhD Student"
 specialization: "Biochemistry & Molecular Biology of Plants"
-tagline: "Deciphering transcriptional networks, epigenetic switches, and gene regulatory mechanisms in plants."
-department: "Unidad de Biología Integrativa"
-institution: "Centro de Investigación Científica de Yucatán (CICY)"
+tagline: "Exploring molecular mechanisms involved in plant development and cellular reprogramming through molecular biology, biochemistry, omics, and plant tissue culture."
 affiliation_role: "PhD Student"
 location: "Yucatán, México"
 status_badge: "PhD Student • Active Lab Research"
@@ -16,9 +14,8 @@ photo_alt: "Brigitte Valeria - PhD Student in Biological Sciences"
 terminal_prompt: "brigitte@lab:~$ analyze --organisms 'C. canephora' 'D. carota' 'J. curcas' --pathways 'plant_growth_regulators'"
 
 about_paragraphs:
-  - "I am a PhD student in Biological Sciences specializing in plant molecular biology. My research focuses on understanding the molecular mechanisms governing gene regulation, functional genomics, and adaptive responses to environmental stress in model and crop plants."
-  - "By bridging rigorous wet-lab molecular biochemistry (CRISPR/Cas9, transcriptomics, confocal imaging) with computational biology (RNA-seq pipelines, gene regulatory network modeling), I aim to uncover novel molecular targets that improve plant resilience and development."
-
+  - "I am a PhD student trained in Biotechnology Engineering and Biological Sciences, with a particular interest in plant science and somatic embryogenesis. My research experience has allowed me to approach biological questions from both experimental and computational perspectives. Beyond my research, I am interested in science communication, bioinformatics, and programming in R and Python, as well as contributing to the development and visibility of plant science in Mexico. I am especially interested in finding clear ways to connect biological questions, data, and scientific communication."
+  - "Outside of research, I share my life with my cat, Haruki, and my dog, Zizek. They are an important part of my everyday life and bring a welcome balance to the academic side of things."
 core_disciplines:
   - "Molecular Biology"
   - "Plant Functional Genomics"
