@@ -9,6 +9,7 @@ tagline: "Exploring molecular mechanisms involved in plant development and cellu
 affiliation_role: "PhD Student"
 location: "Yucatán, México"
 status_badge: "PhD Student • Active Lab Research"
+keywords: "Brigitte Valeria, Plant Molecular Biology, CRISPR, Arabidopsis thaliana, Plant Biotechnology, RNA-seq, Biological Sciences, PhD Student"
 photo: "/assets/images/profile-352w.jpg"
 photo_alt: "Brigitte Valeria - PhD Student in Biological Sciences"
 terminal_prompt: "vargas@lab:~$ analyze --organisms 'C. canephora' 'D. carota' 'J. curcas' --pathways 'plant_growth_regulators'"
