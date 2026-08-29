@@ -64,8 +64,7 @@ permalink: /gallery/
       {% endfor %}
       <section aria-labelledby="gallery-section-{{ gallery_section | slugify }}" class="space-y-5">
         <div class="flex items-center justify-between border-b border-lab-200 pb-3">
-          <div class="flex items-center gap-3">
-            <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">{{ forloop.index | prepend: '0' }}.</span>
+          <div>
             <h2 id="gallery-section-{{ gallery_section | slugify }}" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">{{ section_title }}</h2>
           </div>
           <span class="hidden font-mono text-xs font-medium text-lab-500 sm:inline">// PHOTO CAROUSEL</span>

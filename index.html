@@ -77,9 +77,6 @@ description: Academic profile and research portfolio of Brigitte Valeria, PhD ca
 
             <div class="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
               <span class="inline-flex items-center gap-1.5 rounded-md bg-lab-100 px-2.5 py-1 text-lab-800 border border-lab-200">
-                <span role="img" aria-label="Institution">🏛️</span> {{ site.data.profile.institution }}
-              </span>
-              <span class="inline-flex items-center gap-1.5 rounded-md bg-lab-100 px-2.5 py-1 text-lab-800 border border-lab-200">
                 <span role="img" aria-label="Location">📍</span> {{ site.data.profile.location }}
               </span>
             </div>
@@ -129,8 +126,7 @@ description: Academic profile and research portfolio of Brigitte Valeria, PhD ca
   <!-- ========================================================================= -->
   <section id="publications" aria-labelledby="publications-heading" class="scroll-mt-24 space-y-6">
     <div class="flex flex-wrap items-center justify-between gap-2 border-b border-lab-200 pb-3">
-      <div class="flex items-center gap-3">
-        <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">02.</span>
+      <div>
         <h2 id="publications-heading" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">Recent Publications</h2>
       </div>
       <div class="flex items-center gap-2">
@@ -215,8 +211,7 @@ description: Academic profile and research portfolio of Brigitte Valeria, PhD ca
   {% if site.posts.size > 0 %}
   <section id="posts" aria-labelledby="posts-heading" class="scroll-mt-24 space-y-6">
     <div class="flex flex-wrap items-center justify-between gap-2 border-b border-lab-200 pb-3">
-      <div class="flex items-center gap-3">
-        <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">03.</span>
+      <div>
         <h2 id="posts-heading" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">Recent Posts</h2>
       </div>
       <a href="{{ '/posts/' | relative_url }}" class="text-xs font-mono font-medium text-bio-800 hover:text-bio-950 underline underline-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">View all posts</a>
