@@ -24,12 +24,18 @@ core_disciplines:
 
 knows_about:
   - "Plant Molecular Biology"
-  - "Functional Genomics"
   - "CRISPR/Cas9 Genome Editing"
   - "Transcriptomics"
-  - "Gene Regulatory Networks"
-  - "Epigenetics in Plants"
   - "Arabidopsis thaliana"
+  - "Coffea canephora"
+  - "Daucus carota"
+  - "Jatropha curcas"
+  - "RNA-seq Analysis"
+  - "Plant Tissue Culture"
+  - "Somatic Embryogenesis"
+  - "Bioinformatics"
+  - "Plant Growth Regulators"
+  - "R Programming"
 
 contact:
   orcid: 0009-0001-0103-9308

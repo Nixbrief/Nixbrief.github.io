@@ -11,7 +11,6 @@
 
     <!-- Academic Metadata for Crawlers & Google Scholar -->
     <meta name="citation_author" content="{{ site.data.profile.name | default: site.title }}">
-    <meta name="citation_institution" content="{{ site.data.profile.institution }}">
 
     <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 
@@ -37,11 +36,6 @@
       "name": "{{ site.data.profile.name }}",
       "jobTitle": "{{ site.data.profile.title }}",
       "description": "{{ site.data.profile.tagline }}",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "{{ site.data.profile.institution }}",
-        "department": "{{ site.data.profile.department }}"
-      },
       "url": "{{ site.url }}",
       "sameAs": [
         "{{ site.data.profile.contact.orcid_url }}",
