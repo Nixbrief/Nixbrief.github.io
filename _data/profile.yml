@@ -11,7 +11,7 @@ location: "Yucatán, México"
 status_badge: "PhD Student • Active Lab Research"
 photo: "/assets/images/profile-352w.jpg"
 photo_alt: "Brigitte Valeria - PhD Student in Biological Sciences"
-terminal_prompt: "brigitte@lab:~$ analyze --organisms 'C. canephora' 'D. carota' 'J. curcas' --pathways 'plant_growth_regulators'"
+terminal_prompt: "vargas@lab:~$ analyze --organisms 'C. canephora' 'D. carota' 'J. curcas' --pathways 'plant_growth_regulators'"
 
 about_paragraphs:
   - "I am a PhD student trained in Biotechnology Engineering and Biological Sciences, with a particular interest in plant science and somatic embryogenesis. My research experience has allowed me to approach biological questions from both experimental and computational perspectives. Beyond my research, I am interested in science communication, bioinformatics, and programming in R and Python, as well as contributing to the development and visibility of plant science in Mexico. I am especially interested in finding clear ways to connect biological questions, data, and scientific communication."
