@@ -59,23 +59,6 @@ contact:
   cv_url: "/assets/files/cv.pdf"
 ```
 
-### `_data/research.yml`
-
-A list of research interests with flat paragraph descriptions and metadata.
-
-```yaml
-- id: "unique-slug"
-  title: "Research focus title"
-  icon: "Emoji or short icon"
-  topic: "Short category or topic badge"
-  description: "Paragraph describing research aims, approach, and findings."
-  highlight: "Short takeaway or emphasis statement"
-  model_organisms:
-    - "Organism"
-  keywords:
-    - "Method or Keyword"
-```
-
 ### `_data/publications.yml`
 
 A list of publication cards.

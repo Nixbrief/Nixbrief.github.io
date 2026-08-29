@@ -26,10 +26,9 @@ Read @DESIGN.md file for design and content guidelines.
 
 ### 1. Data-Driven Content (`_data/`)
 
-All profile details, publications, research projects, and skills are decoupled from HTML:
+All profile details, publications, and skills are decoupled from HTML:
 
 - `_data/profile.yml`: Academic credentials, tagline, institution, social/academic links, photo path, quick stats.
-- `_data/research.yml`: Research focus cards, methods, and model organisms.
 - `_data/publications.yml`: Articles and preprints with DOI, links, abstract, tags.
 - `_data/toolkit.yml`: Dual-matrix skills (`wet_lab` and `dry_lab`).
 - `_data/timeline.yml`: Degrees, honors, institutions.
