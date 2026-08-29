@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+  
+  ::selection {
+    background-color: #d1fae5;
+    color: #064e3b;
+  }
+
+  /* Accessible Focus Indicator defaults */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex="0"]:focus-visible {
+    outline: 2px solid #047857;
+    outline-offset: 2px;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  .dark ::selection {
+    background-color: #064e3b;
+    color: #ecfdf5;
+  }
+
+  .dark a:focus-visible,
+  .dark button:focus-visible,
+  .dark [tabindex="0"]:focus-visible {
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-grid-lab {
+    background-size: 24px 24px;
+    background-image: 
+      linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+  }
+  
+  .bg-dots-lab {
+    background-size: 20px 20px;
+    background-image: radial-gradient(rgba(148, 163, 184, 0.35) 1px, transparent 1px);
+  }
+
+  .lab-card {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* ========================================================================= */
+  /* DARK THEME: High-Precision Bioluminescent Laboratory System               */
+  /* ========================================================================= */
+  
+  .dark .bg-grid-lab {
+    background-image:
+      linear-gradient(to right, rgba(51, 65, 85, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(51, 65, 85, 0.22) 1px, transparent 1px);
+  }
+
+  .dark .bg-dots-lab {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  }
+
+  /* Surfaces & Backgrounds */
+  .dark .bg-white { background-color: #121927; }
+  .dark .bg-white\/80 { background-color: rgb(18 25 39 / 0.85); }
+  .dark .bg-white\/95 { background-color: rgb(18 25 39 / 0.95); }
+  .dark .bg-lab-50 { background-color: #0b0f19; }
+  .dark .bg-lab-50\/90 { background-color: rgb(11 15 25 / 0.9); }
+  .dark .bg-lab-100 { background-color: #182235; }
+  .dark .bg-lab-100\/70 { background-color: rgb(24 34 53 / 0.7); }
+  .dark .bg-lab-200 { background-color: #223149; }
+  .dark .bg-lab-900 { background-color: #060911; }
+  .dark .bg-lab-950 { background-color: #03050a; }
+  .dark .bg-lab-950\/85 { background-color: rgb(3 5 10 / 0.85); }
+
+  /* Bio & Status Translucent Tints */
+  .dark .bg-bio-50 { background-color: rgb(16 185 129 / 0.12); }
+  .dark .bg-bio-50\/90 { background-color: rgb(16 185 129 / 0.15); }
+  .dark .bg-bio-50\/70 { background-color: rgb(16 185 129 / 0.12); }
+  .dark .bg-bio-50\/60 { background-color: rgb(16 185 129 / 0.1); }
+  .dark .bg-bio-100 { background-color: rgb(16 185 129 / 0.2); }
+  .dark .bg-bio-800 { background-color: #059669; }
+  .dark .bg-emerald-100 { background-color: rgb(16 185 129 / 0.15); }
+  .dark .bg-amber-100 { background-color: rgb(245 158 11 / 0.15); }
+  .dark .bg-sky-100 { background-color: rgb(14 165 233 / 0.15); }
+
+  /* Borders */
+  .dark .border-lab-100 { border-color: #1a2436; }
+  .dark .border-lab-200 { border-color: #26354d; }
+  .dark .border-lab-200\/70 { border-color: rgb(38 53 77 / 0.7); }
+  .dark .border-lab-300 { border-color: #344663; }
+  .dark .border-lab-300\/80 { border-color: rgb(52 70 99 / 0.8); }
+  .dark .border-bio-200 { border-color: rgb(52 211 153 / 0.3); }
+  .dark .border-bio-600 { border-color: #34d399; }
+  .dark .border-bio-600\/40 { border-color: rgb(52 211 153 / 0.35); }
+  .dark .border-bio-700 { border-color: #34d399; }
+  .dark .border-emerald-300 { border-color: rgb(52 211 153 / 0.35); }
+  .dark .border-amber-300 { border-color: rgb(245 158 11 / 0.35); }
+  .dark .border-sky-200 { border-color: rgb(56 189 248 / 0.3); }
+
+  /* Rings */
+  .dark .ring-bio-50 { --tw-ring-color: rgb(16 185 129 / 0.15); }
+  .dark .ring-bio-900 { --tw-ring-color: rgb(16 185 129 / 0.4); }
+
+  /* Text Colors & Hierarchy */
+  .dark .text-lab-400 { color: #8295ac; }
+  .dark .text-lab-500 { color: #94a3b8; }
+  .dark .text-lab-600 { color: #a6b8cc; }
+  .dark .text-lab-700 { color: #cbd5e1; }
+  .dark .text-lab-800 { color: #e2e8f0; }
+  .dark .text-lab-900 { color: #f8fafc; }
+  .dark .text-lab-950 { color: #ffffff; }
+
+  /* Bio Text Tokens */
+  .dark .text-bio-700 { color: #34d399; }
+  .dark .text-bio-800 { color: #34d399; }
+  .dark .text-bio-900 { color: #6ee7b7; }
+  .dark .text-bio-950 { color: #a7f3d0; }
+  .dark .text-emerald-900 { color: #6ee7b7; }
+  .dark .text-amber-900 { color: #fcd34d; }
+  .dark .text-sky-900 { color: #7dd3fc; }
+
+  /* Hover States */
+  .dark .hover\:bg-bio-50:hover { background-color: rgb(16 185 129 / 0.14); }
+  .dark .hover\:bg-bio-700:hover { background-color: #047857; }
+  .dark .hover\:border-bio-400:hover { border-color: rgb(52 211 153 / 0.5); }
+  .dark .hover\:border-bio-500:hover { border-color: rgb(52 211 153 / 0.5); }
+  .dark .hover\:text-bio-800:hover,
+  .dark .hover\:text-bio-900:hover,
+  .dark .hover\:text-bio-950:hover { color: #6ee7b7; }
+
+  /* Card Hover Glow */
+  .dark .lab-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.09), 0 8px 10px -6px rgba(16, 185, 129, 0.04);
+  }
+
+  /* Theme Icon Controls */
+  .dark [data-theme-icon="light"] { display: none; }
+  [data-theme-icon="dark"] { display: none; }
+  .dark [data-theme-icon="dark"] { display: block; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lab-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(4, 120, 87, 0.08), 0 8px 10px -6px rgba(4, 120, 87, 0.04);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

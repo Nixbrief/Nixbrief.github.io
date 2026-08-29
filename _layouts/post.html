@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<article class="mx-auto max-w-4xl space-y-10 px-4 py-10 sm:px-6">
+  <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-xs text-lab-600">
+    <a href="{{ '/' | relative_url }}" class="rounded underline underline-offset-2 hover:text-bio-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">Home</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/posts/' | relative_url }}" class="rounded underline underline-offset-2 hover:text-bio-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">Posts</a>
+    <span aria-hidden="true">/</span>
+    <span class="truncate font-medium text-lab-800" aria-current="page">{{ page.title }}</span>
+  </nav>
+
+  <header class="space-y-4 rounded-2xl border border-lab-200 bg-white p-6 shadow-sm sm:p-8">
+    <div class="flex flex-wrap items-center gap-2">
+      <span class="rounded border border-bio-200 bg-bio-50 px-2.5 py-0.5 font-mono text-xs font-semibold text-bio-900">LAB_NOTE</span>
+      <span class="font-mono text-xs text-lab-500">Published: {{ page.date | date: "%B %-d, %Y" }}</span>
+    </div>
+    <h1 class="font-sans text-3xl font-bold tracking-tight text-lab-950 sm:text-4xl">{{ page.title }}</h1>
+    {% if page.description %}<p class="text-base leading-relaxed text-lab-700">{{ page.description }}</p>{% endif %}
+    <div class="flex flex-wrap items-center gap-2 border-t border-lab-100 pt-3 font-mono text-xs text-lab-600">
+      <span>Author: <strong class="text-lab-900">{{ page.author | default: site.data.profile.name }}</strong></span>
+      {% for tag in page.tags %}<span class="rounded border border-lab-200 bg-lab-100 px-2 py-0.5 text-[11px] text-lab-700">#{{ tag }}</span>{% endfor %}
+    </div>
+  </header>
+
+  <div class="space-y-6 rounded-2xl border border-lab-200 bg-white p-6 text-sm leading-relaxed text-lab-800 shadow-sm sm:p-10 sm:text-base [&_a]:text-bio-800 [&_a]:underline [&_a]:underline-offset-2 [&_a]:hover:text-bio-950 [&_blockquote]:border-l-4 [&_blockquote]:border-bio-600 [&_blockquote]:bg-bio-50/60 [&_blockquote]:p-4 [&_h2]:border-b [&_h2]:border-lab-100 [&_h2]:pb-2 [&_h2]:pt-2 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-lab-950 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-lab-900 [&_li]:ml-5 [&_li]:list-disc [&_ol_li]:list-decimal [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:bg-lab-900 [&_pre]:p-4 [&_pre]:font-mono [&_pre]:text-xs [&_pre]:text-lab-100 [&_table]:w-full [&_table]:border-collapse [&_td]:border [&_td]:border-lab-200 [&_td]:p-2 [&_th]:border [&_th]:border-lab-200 [&_th]:bg-lab-100 [&_th]:p-2 [&_th]:text-left">
+    {{ content }}
+  </div>
+
+  <footer class="space-y-2 rounded-xl border border-lab-200 bg-lab-50 p-6 font-mono text-xs text-lab-700">
+    <p class="font-bold uppercase text-lab-900">// Suggested Citation <span class="font-normal normal-case text-lab-500">(APA 7th ed.)</span></p>
+    {% assign citation_author = page.author | default: site.data.profile.name %}
+    {% assign author_parts = citation_author | split: " " %}
+    {% assign last_name = author_parts | last %}
+    {% assign initials = "" %}
+    {% for part in author_parts %}
+      {% unless forloop.last %}
+        {% assign initial_char = part | slice: 0, 1 %}
+        {% assign initial = initial_char | append: "." %}
+        {% if initials == "" %}
+          {% assign initials = initial %}
+        {% else %}
+          {% assign initials = initials | append: " " | append: initial %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+    {% if initials != "" %}
+      {% assign apa_author = last_name | append: ", " | append: initials %}
+    {% else %}
+      {% assign apa_author = citation_author %}
+    {% endif %}
+    <p class="rounded border border-lab-200 bg-white p-3 text-[11px] leading-relaxed text-lab-800">{{ apa_author }} ({{ page.date | date: "%Y, %B %-d" }}). <em>{{ page.title }}</em>. {{ site.title }}. {{ page.url | absolute_url }}</p>
+  </footer>
+</article>

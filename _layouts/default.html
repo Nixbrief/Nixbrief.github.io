@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" class="bg-lab-50 text-lab-900 antialiased selection:bg-bio-100 selection:text-bio-950">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b0f19" media="(prefers-color-scheme: dark)">
+    <meta name="author" content="{{ site.data.profile.name | default: site.title }}">
+    <meta name="keywords" content="Brigitte Valeria, Plant Molecular Biology, Functional Genomics, CRISPR, Arabidopsis thaliana, Plant Biotechnology, RNA-seq, Epigenetics, Biological Sciences, PhD Candidate">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Academic Metadata for Crawlers & Google Scholar -->
+    <meta name="citation_author" content="{{ site.data.profile.name | default: site.title }}">
+    <meta name="citation_institution" content="{{ site.data.profile.institution }}">
+
+    <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+
+    <script>
+      (() => {
+        const preference = localStorage.getItem('theme');
+        const dark = preference ? preference === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', dark);
+      })();
+    </script>
+
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    {% seo %}
+
+    <!-- Academic Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ site.data.profile.name }}",
+      "jobTitle": "{{ site.data.profile.title }}",
+      "description": "{{ site.data.profile.tagline }}",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "{{ site.data.profile.institution }}",
+        "department": "{{ site.data.profile.department }}"
+      },
+      "url": "{{ site.url }}",
+      "sameAs": [
+        "{{ site.data.profile.contact.orcid_url }}",
+        "{{ site.data.profile.contact.scholar_url }}",
+        "{{ site.data.profile.contact.github_url }}",
+        "{{ site.data.profile.contact.researchgate_url }}"
+      ],
+      "knowsAbout": [
+        {% for topic in site.data.profile.knows_about %}
+        {{ topic | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="{{ '/assets/css/app.css' | relative_url }}">
+  </head>
+  <body class="min-h-screen bg-lab-50 font-sans text-lab-900">
+
+    <!-- Skip to Content Link for Keyboard & Screen Reader Users -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-bio-900 focus:text-white focus:rounded-md focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-bio-400 font-mono text-xs">
+      Skip to main content
+    </a>
+
+    <!-- Laboratory Header Landmark -->
+    <header class="border-b border-lab-200 bg-white/80 backdrop-blur-md sticky top-0 z-40">
+
+      <!-- Top Status Strip -->
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-2 text-xs font-mono">
+        <div class="flex items-center gap-2 text-lab-600">
+          <span class="inline-block h-2 w-2 rounded-full bg-bio-500 motion-safe:animate-pulse" aria-hidden="true"></span>
+          <span class="font-medium text-lab-800">LAB_STATUS:</span>
+          <span class="text-bio-800 bg-bio-50 border border-bio-200 px-1.5 py-0.5 rounded text-[11px] font-semibold">{{ site.data.profile.status_badge }}</span>
+        </div>
+        <div class="hidden sm:flex items-center gap-4 text-lab-600">
+          <span>ORCID: <a href="{{ site.data.profile.contact.orcid_url }}" target="_blank" rel="noopener noreferrer" class="text-bio-800 hover:text-bio-950 underline underline-offset-2 focus-visible:rounded" aria-label="ORCID Profile {{ site.data.profile.contact.orcid }} (opens in a new tab)">{{ site.data.profile.contact.orcid }}</a></span>
+        </div>
+      </div>
+
+      <!-- Main Nav Header -->
+      <nav aria-label="Main Navigation" class="border-t border-lab-200/70 bg-white/95">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-3">
+          <a href="{{ '/' | relative_url }}" class="group flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600 focus-visible:ring-offset-2 rounded-lg p-0.5" aria-label="{{ site.data.profile.name }} Homepage">
+            <div class="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-bio-800 text-white shadow-sm ring-1 ring-bio-900 transition-transform group-hover:scale-105" aria-hidden="true">
+              <span class="font-mono text-xs sm:text-sm font-bold tracking-tighter">BV</span>
+            </div>
+            <div>
+              <div class="font-mono text-xs sm:text-sm font-bold tracking-tight text-lab-900 group-hover:text-bio-800 transition-colors">
+                {{ site.data.profile.name }}
+              </div>
+              <div class="text-[10px] sm:text-[11px] font-mono text-lab-500">
+                // {{ site.data.profile.handle }}
+              </div>
+            </div>
+          </a>
+
+          <!-- Navigation Links & Actions -->
+          <div class="flex items-center gap-1.5 sm:gap-6">
+            <div class="hidden md:flex items-center gap-4 text-xs font-mono">
+              <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %} class="transition-colors py-1 px-1 text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">
+                <span class="text-bio-700 font-bold" aria-hidden="true">01.</span> Home
+              </a>
+              <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %} class="transition-colors py-1 px-1 text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/about/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">
+                <span class="text-bio-700 font-bold" aria-hidden="true">02.</span> About
+              </a>
+              <a href="{{ '/posts/' | relative_url }}"{% if page.url == '/posts/' or page.url contains '/posts/' %} aria-current="page"{% endif %} class="transition-colors py-1 px-1 text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/posts/' or page.url contains '/posts/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">
+                <span class="text-bio-700 font-bold" aria-hidden="true">03.</span> Posts
+              </a>
+              <a href="{{ '/gallery/' | relative_url }}"{% if page.url == '/gallery/' %} aria-current="page"{% endif %} class="transition-colors py-1 px-1 text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/gallery/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600">
+                <span class="text-bio-700 font-bold" aria-hidden="true">04.</span> Gallery
+              </a>
+            </div>
+
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <button type="button" data-theme-toggle class="inline-flex items-center gap-1.5 rounded-md border border-lab-200 bg-lab-50 px-2.5 py-1.5 sm:px-3 sm:py-1.5 text-xs font-mono font-medium text-lab-800 shadow-sm transition hover:border-bio-500 hover:bg-bio-50 hover:text-bio-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600 focus-visible:ring-offset-2" aria-label="Switch to dark theme" aria-pressed="false">
+                <svg data-theme-icon="light" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4" />
+                  <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                </svg>
+                <svg data-theme-icon="dark" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+                </svg>
+                <span data-theme-label class="hidden sm:inline">Theme</span>
+              </button>
+              {% if site.data.profile.contact.cv_url and site.data.profile.contact.cv_url != "" and site.data.profile.contact.cv_url != "#" %}
+              <a href="{{ site.data.profile.contact.cv_url }}" class="inline-flex items-center gap-1.5 rounded-md bg-bio-800 px-2.5 py-1.5 sm:px-3.5 sm:py-1.5 text-xs font-mono font-medium text-white shadow-sm transition hover:bg-bio-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600 focus-visible:ring-offset-2" aria-label="Download Curriculum Vitae (PDF)">
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <span class="hidden sm:inline">CV.pdf</span>
+                <span class="sm:hidden">CV</span>
+              </a>
+              {% endif %}
+
+              <!-- Mobile Menu Toggle Button -->
+              <button type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="mobile-nav" class="md:hidden inline-flex items-center justify-center rounded-md border border-lab-200 bg-lab-50 p-1.5 text-lab-800 shadow-sm transition hover:border-bio-500 hover:bg-bio-50 hover:text-bio-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="Toggle navigation menu">
+                <svg data-menu-icon="closed" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg data-menu-icon="open" class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-nav" data-mobile-menu class="hidden md:hidden border-t border-lab-200/70 bg-white/95 px-4 py-3 space-y-1 shadow-sm">
+          <div class="text-[10px] font-mono font-bold uppercase tracking-wider text-lab-500 px-3 py-1">// Navigation Menu</div>
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %} class="flex items-center gap-2.5 px-3 py-2 font-mono text-xs font-medium text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} transition-colors">
+            <span class="text-bio-700 font-bold" aria-hidden="true">01.</span> Home
+          </a>
+          <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %} class="flex items-center gap-2.5 px-3 py-2 font-mono text-xs font-medium text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/about/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} transition-colors">
+            <span class="text-bio-700 font-bold" aria-hidden="true">02.</span> About
+          </a>
+          <a href="{{ '/posts/' | relative_url }}"{% if page.url == '/posts/' or page.url contains '/posts/' %} aria-current="page"{% endif %} class="flex items-center gap-2.5 px-3 py-2 font-mono text-xs font-medium text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/posts/' or page.url contains '/posts/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} transition-colors">
+            <span class="text-bio-700 font-bold" aria-hidden="true">03.</span> Posts
+          </a>
+          <a href="{{ '/gallery/' | relative_url }}"{% if page.url == '/gallery/' %} aria-current="page"{% endif %} class="flex items-center gap-2.5 px-3 py-2 font-mono text-xs font-medium text-lab-700 hover:text-lab-950 hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-bio-600{% if page.url == '/gallery/' %} text-lab-950 underline underline-offset-4 decoration-2 decoration-bio-600{% endif %} transition-colors">
+            <span class="text-bio-700 font-bold" aria-hidden="true">04.</span> Gallery
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" tabindex="-1" class="focus:outline-none">
+      {{ content }}
+    </main>
+
+    <!-- Laboratory Colophon / Footer Landmark -->
+    <footer role="contentinfo" class="mt-20 border-t border-lab-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-lab-100">
+          <div class="md:col-span-2 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="font-mono text-sm font-bold text-lab-900">{{ site.data.profile.name }}</span>
+              <span class="text-xs font-mono text-bio-800 bg-bio-50 border border-bio-200 px-1.5 py-0.5 rounded font-medium">{{ site.data.profile.short_title }}</span>
+            </div>
+            <p class="text-sm text-lab-700 max-w-md">
+              {{ site.data.profile.department }} • {{ site.data.profile.institution }}
+            </p>
+            <p class="text-xs font-mono text-lab-600">
+              <span role="img" aria-label="Location">📍</span> {{ site.data.profile.location }}
+            </p>
+          </div>
+
+          <div>
+            <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-lab-500 mb-3">// Academic Links</h2>
+            <ul class="space-y-2 text-xs font-mono text-lab-700">
+              <li>
+                <a href="{{ site.data.profile.contact.orcid_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-bio-800 flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">
+                  <span class="text-bio-700 font-semibold" aria-hidden="true">→</span>
+                  <span>ORCID Profile</span>
+                  <span class="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ site.data.profile.contact.scholar_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-bio-800 flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">
+                  <span class="text-bio-700 font-semibold" aria-hidden="true">→</span>
+                  <span>Google Scholar</span>
+                  <span class="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ site.data.profile.contact.researchgate_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-bio-800 flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">
+                  <span class="text-bio-700 font-semibold" aria-hidden="true">→</span>
+                  <span>ResearchGate</span>
+                  <span class="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ site.data.profile.contact.github_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-bio-800 flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">
+                  <span class="text-bio-700 font-semibold" aria-hidden="true">→</span>
+                  <span>GitHub</span>
+                  <span class="sr-only">(opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-lab-600 text-center sm:text-left">
+          <div>
+            © {{ 'now' | date: "%Y" }} {{ site.data.profile.name }}.
+          </div>
+          <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3">
+            <a href="#main-content" class="hover:text-bio-800 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script nonce="script-nonce">
+      (() => {
+        const themeButton = document.querySelector('[data-theme-toggle]');
+        const root = document.documentElement;
+
+        const render = () => {
+          const dark = root.classList.contains('dark');
+          themeButton.setAttribute('aria-pressed', String(dark));
+          themeButton.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
+          const label = themeButton.querySelector('[data-theme-label]');
+          if (label) {
+            label.textContent = dark ? 'Dark' : 'Light';
+          }
+        };
+
+        themeButton.addEventListener('click', () => {
+          const dark = !root.classList.contains('dark');
+          root.classList.toggle('dark', dark);
+          localStorage.setItem('theme', dark ? 'dark' : 'light');
+          render();
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+          if (!localStorage.getItem('theme')) {
+            root.classList.toggle('dark', event.matches);
+            render();
+          }
+        });
+
+        render();
+
+        // Mobile navigation drawer toggle
+        const menuToggle = document.querySelector('[data-mobile-menu-toggle]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        if (menuToggle && mobileMenu) {
+          const iconClosed = menuToggle.querySelector('[data-menu-icon="closed"]');
+          const iconOpen = menuToggle.querySelector('[data-menu-icon="open"]');
+
+          const toggleMenu = (isOpen) => {
+            const open = typeof isOpen === 'boolean' ? isOpen : mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden', !open);
+            menuToggle.setAttribute('aria-expanded', String(open));
+            if (iconClosed && iconOpen) {
+              iconClosed.classList.toggle('hidden', open);
+              iconOpen.classList.toggle('hidden', !open);
+            }
+          };
+
+          menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+              toggleMenu(false);
+            }
+          });
+
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+              toggleMenu(false);
+              menuToggle.focus();
+            }
+          });
+
+          window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+            if (e.matches) {
+              toggleMenu(false);
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

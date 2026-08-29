@@ -1,0 +1,120 @@
+---
+layout: default
+title: Photo Gallery
+description: Research, fieldwork, and laboratory photographs from Brigitte Valeria.
+permalink: /gallery/
+---
+
+{% assign photo_count = 0 %}
+{% assign gallery_sections = '' | split: '' %}
+{% for file in site.static_files %}
+  {% assign extension = file.extname | downcase %}
+  {% assign photo_path = file.path | remove_first: '/assets/images/gallery/' %}
+  {% assign gallery_section = photo_path | split: '/' | first %}
+  {% if file.path contains '/assets/images/gallery/' %}
+    {% if extension == '.jpg' or extension == '.jpeg' or extension == '.png' or extension == '.webp' or extension == '.avif' or extension == '.gif' %}
+      {% assign photo_count = photo_count | plus: 1 %}
+      {% unless gallery_sections contains gallery_section %}
+        {% assign gallery_sections = gallery_sections | push: gallery_section %}
+      {% endunless %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 space-y-10 sm:space-y-12">
+  <header class="rounded-xl border border-lab-300/80 bg-white shadow-sm overflow-hidden" role="region" aria-label="Gallery archive prompt">
+    <div class="flex items-center justify-between border-b border-lab-200 bg-lab-100/70 px-4 py-2.5 text-xs font-mono">
+      <div class="flex items-center gap-2">
+        <span class="h-3 w-3 rounded-full bg-rose-400 inline-block" aria-hidden="true"></span>
+        <span class="h-3 w-3 rounded-full bg-amber-400 inline-block" aria-hidden="true"></span>
+        <span class="h-3 w-3 rounded-full bg-emerald-400 inline-block" aria-hidden="true"></span>
+        <span class="ml-2 font-medium text-lab-700">bash gallery_archive.sh</span>
+      </div>
+      <div class="hidden text-lab-600 sm:block">
+        STATUS: <span class="font-bold text-bio-800">INDEXED</span>
+      </div>
+    </div>
+    <div class="overflow-x-auto bg-lab-900 p-4 font-mono text-xs text-lab-100 sm:p-5 sm:text-sm">
+      <h1 class="sr-only">Photo Gallery</h1>
+      <div class="font-semibold text-bio-400">brigitte@lab:~$ ls --carousel photos/</div>
+      <div class="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-lab-300">
+        <span>Archive: <span class="text-white">Photo Gallery</span></span>
+        <span aria-hidden="true">•</span>
+        <span>Record: <span class="text-white">Science, plants, teamwork, and shared moments</span></span>
+        <span aria-hidden="true">•</span>
+        <span><span class="text-white">{{ photo_count }}</span> {% if photo_count == 1 %}image{% else %}images{% endif %} catalogued</span>
+      </div>
+    </div>
+  </header>
+
+  {% if photo_count > 0 %}
+  <div class="space-y-10 sm:space-y-12">
+    {% for gallery_section in gallery_sections %}
+      {% assign section_title = gallery_section | replace: '-', ' ' | replace: '_', ' ' | capitalize %}
+      {% assign gallery_photos = '' | split: '' %}
+      {% for file in site.static_files %}
+        {% assign extension = file.extname | downcase %}
+        {% assign photo_path = file.path | remove_first: '/assets/images/gallery/' %}
+        {% assign photo_section = photo_path | split: '/' | first %}
+        {% if file.path contains '/assets/images/gallery/' and photo_section == gallery_section %}
+          {% if extension == '.jpg' or extension == '.jpeg' or extension == '.png' or extension == '.webp' or extension == '.avif' or extension == '.gif' %}
+            {% assign gallery_photos = gallery_photos | push: file %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      <section aria-labelledby="gallery-section-{{ gallery_section | slugify }}" class="space-y-5">
+        <div class="flex items-center justify-between border-b border-lab-200 pb-3">
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">{{ forloop.index | prepend: '0' }}.</span>
+            <h2 id="gallery-section-{{ gallery_section | slugify }}" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">{{ section_title }}</h2>
+          </div>
+          <span class="hidden font-mono text-xs font-medium text-lab-500 sm:inline">// PHOTO CAROUSEL</span>
+        </div>
+        <div class="flex snap-x snap-mandatory overflow-x-auto rounded-xl border border-lab-200 bg-lab-900 shadow-sm" role="region" aria-roledescription="carousel" aria-label="{{ section_title }} photos">
+          {% for file in gallery_photos %}
+            {% assign photo_name = file.basename | replace: '-', ' ' | replace: '_', ' ' %}
+            <figure class="group relative w-full shrink-0 snap-start" role="group" aria-roledescription="slide" aria-label="Photo {{ forloop.index }} of {{ gallery_photos.size }}" tabindex="-1">
+              <a href="{{ file.path | relative_url }}" class="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-bio-400" aria-label="View full-size photo: {{ photo_name }}">
+                <img src="{{ file.path | relative_url }}" alt="{{ photo_name }}" class="h-[22rem] w-full object-contain sm:h-[34rem]" loading="lazy">
+              </a>
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-lab-950/80 via-lab-950/20 to-transparent p-4 sm:p-5">
+                <span class="rounded border border-white/30 bg-lab-950/75 px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-white">{{ forloop.index }} / {{ gallery_photos.size }}</span>
+              </div>
+              <div class="absolute inset-x-3 top-1/2 flex -translate-y-1/2 justify-between sm:inset-x-5">
+                <button type="button" data-carousel-action="previous" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-lab-950/75 text-white shadow-sm transition hover:bg-bio-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-400 focus-visible:ring-offset-2 focus-visible:ring-offset-lab-900" aria-label="Previous photo in {{ section_title }} carousel">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6" /></svg>
+                </button>
+                <button type="button" data-carousel-action="next" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-lab-950/75 text-white shadow-sm transition hover:bg-bio-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-400 focus-visible:ring-offset-2 focus-visible:ring-offset-lab-900" aria-label="Next photo in {{ section_title }} carousel">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6" /></svg>
+                </button>
+              </div>
+            </figure>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+  {% else %}
+  <section class="rounded-xl border border-dashed border-lab-300 bg-white/80 p-8 text-center sm:p-12" aria-labelledby="gallery-empty-heading">
+    <p class="font-mono text-xs font-bold uppercase tracking-wider text-bio-800">// Archive Awaiting Samples</p>
+    <h2 id="gallery-empty-heading" class="mt-3 text-xl font-bold text-lab-900">No photos yet</h2>
+    <p class="mx-auto mt-2 max-w-lg text-sm leading-relaxed text-lab-700">Add image files to a category folder, such as <code class="rounded bg-lab-100 px-1.5 py-0.5 font-mono text-xs text-lab-900">assets/images/gallery/lab-group/</code>. Each folder becomes its own carousel on the next build.</p>
+  </section>
+  {% endif %}
+</div>
+
+<script>
+  document.querySelectorAll('[data-carousel-action]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const carousel = button.closest('[aria-roledescription="carousel"]');
+      const slides = Array.from(carousel.children).filter((slide) => slide.getAttribute('aria-roledescription') === 'slide');
+      const currentIndex = slides.indexOf(button.closest('[aria-roledescription="slide"]'));
+      const direction = button.dataset.carouselAction === 'next' ? 1 : -1;
+      const target = slides[(currentIndex + direction + slides.length) % slides.length];
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'start' });
+      target.focus({ preventScroll: true });
+    });
+  });
+</script>

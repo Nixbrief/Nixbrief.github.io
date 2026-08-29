@@ -1,0 +1,19 @@
+- type: "education"
+  degree: "Ph.D. in Biological Sciences"
+  institution: "Centro de Investigación Científica de Yucatán (CICY)"
+  location: "Mexico City, Mexico"
+  advisor: "Dr. Víctor Manuel Loyola-Vargas"
+  highlight:
+  badge: "In Progress"
+
+- type: "education"
+  degree: "M.Sc. in Biological Sciences"
+  institution: "Centro de Investigación Científica de Yucatán (CICY)"
+  location: "Yucatan, Mexico"
+  advisor: "Dr. Víctor Manuel Loyola-Vargas"
+  highlight:
+
+- type: "education"
+  degree: "B.Sc. in Biotechnology Engineering"
+  institution: "Faculty of Chemical Engineering, Autonomous University of Yucatan (UADY)"
+  location: "Yucatan, Mexico"

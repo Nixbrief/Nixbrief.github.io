@@ -1,0 +1,48 @@
+categories:
+  - id: "wet_lab"
+    name: "Wet Lab // Molecular Biology"
+    badge: "BENCH_WORK"
+    icon: "🔬"
+    description: "Standard & advanced molecular protocols for plant functional genetics and biochemical validation."
+    groups:
+      - title: "Gene Editing & Cloning"
+        skills:
+          - name: "CRISPR/Cas9 & Cas12a Multiplex Vectors"
+          - name: "Golden Gate & Gateway Assembly"
+          - name: "Plant Protoplast Isolation & PEG Transfection"
+          - name: "Agrobacterium-mediated Floral Dip / Infiltration"
+      - title: "Molecular Assays & Quantitation"
+        skills:
+          - name: "RT-qPCR / Quantitative Expression Analysis"
+          - name: "ChIP-qPCR & Chromatin Immuno-precipitation"
+          - name: "NGS Library Preparation (RNA-seq, Amplicon)"
+          - name: "Western Blot & Co-Immunoprecipitation (Co-IP)"
+      - title: "Microscopy & Plant Physiology"
+        skills:
+          - name: "Confocal Laser Scanning Microscopy (CLSM)"
+          - name: "Subcellular Localization (GFP/mCherry reporters)"
+          - name: "Plant In-Vitro Tissue Culture & Selection"
+
+  - id: "dry_lab"
+    name: "Dry Lab // Computational & Bioinformatics"
+    badge: "IN_SILICO"
+    icon: "💻"
+    description: "Data pipelines, high-throughput sequence analysis, and reproducible computational workflows."
+    groups:
+      - title: "Bioinformatics & Sequence Analysis"
+        skills:
+          - name: "RNA-seq Pipeline (FastQC, STAR, DESeq2, edgeR)"
+          - name: "Differential Expression & Gene Ontology (GO)"
+          - name: "Variant Calling & GATK / BCFtools"
+          - name: "sgRNA Off-Target Prediction & CRISPR Design"
+      - title: "Programming & Scientific Computing"
+        skills:
+          - name: "R / Bioconductor (ggplot2, ComplexHeatmap, tidyverse)"
+          - name: "Python (Biopython, pandas, numpy, seaborn)"
+          - name: "Bash Scripting & Unix Environment"
+          - name: "Workflow Management (Nextflow / Snakemake)"
+      - title: "HPC & Development Tools"
+        skills:
+          - name: "Linux HPC Cluster & SLURM Job Scheduling"
+          - name: "Git / Version Control & GitHub"
+          - name: "Docker / Conda Environments"

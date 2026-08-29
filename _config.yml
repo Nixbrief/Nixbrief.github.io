@@ -1,0 +1,48 @@
+title: "Brigitte Valeria"
+tagline: "PhD Candidate in Biological Sciences | Plant Molecular Biology & Functional Genomics"
+description: "Academic profile and research portfolio of Brigitte Valeria, PhD candidate in Biological Sciences specializing in plant molecular biology, functional genomics, and CRISPR/Cas gene editing."
+url: "https://brigittevaleria.dev"
+baseurl: ""
+lang: "en"
+domain: "brigittevaleria.dev"
+
+author:
+  name: "Brigitte Valeria"
+  job_title: "PhD Student / Graduate Researcher"
+  works_for: "Center for Research in Biological Sciences"
+
+social:
+  name: "Brigitte Valeria"
+  links:
+    - "https://orcid.org"
+    - "https://scholar.google.com"
+    - "https://github.com"
+    - "https://researchgate.net"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-tailwind
+
+paginate: 10
+paginate_path: "/posts/page:num/"
+
+collections:
+  posts:
+    output: true
+    permalink: /posts/:year/:month/:day/:title/
+
+tailwind:
+  input: assets/css/app.css
+  output: _site/assets/css/app.css
+  minify: true
+
+exclude:
+  - "node_modules"
+  - "mise.toml"
+  - AGENTS.md
+  - README.md
+  - skills-lock.json
+  - .agents/
+  - docs/

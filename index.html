@@ -1,0 +1,238 @@
+---
+layout: default
+title: Profile
+description: Academic profile and research portfolio of Brigitte Valeria, PhD candidate specializing in plant molecular biology, functional genomics, and CRISPR/Cas gene editing.
+---
+
+<div class="mx-auto max-w-6xl px-4 sm:px-6 py-10 space-y-20">
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION: Academic Spec Sheet & Terminal Overview                     -->
+  <!-- ========================================================================= -->
+  <section aria-labelledby="hero-name" class="relative">
+
+    <!-- Terminal Header Badge -->
+    <div class="rounded-xl border border-lab-300/80 bg-white shadow-sm overflow-hidden mb-8" role="region" aria-label="Terminal Environment Status">
+      <div class="flex items-center justify-between border-b border-lab-200 bg-lab-100/70 px-4 py-2.5 text-xs font-mono">
+        <div class="flex items-center gap-2">
+          <span class="h-3 w-3 rounded-full bg-rose-400 inline-block" aria-hidden="true"></span>
+          <span class="h-3 w-3 rounded-full bg-amber-400 inline-block" aria-hidden="true"></span>
+          <span class="h-3 w-3 rounded-full bg-emerald-400 inline-block" aria-hidden="true"></span>
+          <span class="ml-2 font-medium text-lab-700">bash profile_loader.sh</span>
+        </div>
+        <div class="text-lab-600 hidden sm:block">
+          STATUS: <span class="text-bio-800 font-bold">200_OK</span>
+        </div>
+      </div>
+
+      <div class="p-4 sm:p-5 bg-lab-900 text-lab-100 font-mono text-xs sm:text-sm overflow-x-auto">
+        <div class="text-bio-400 font-semibold">
+          {{ site.data.profile.terminal_prompt }}
+        </div>
+        <div class="mt-2 text-lab-300 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs">
+          <span>Target: <span class="text-white">Gene Regulatory Networks</span></span>
+          <span aria-hidden="true">•</span>
+          <span>Vector: <span class="text-white">CRISPR/Cas9</span></span>
+          <span aria-hidden="true">•</span>
+          <span>Data: <span class="text-white">Transcriptomics / RNA-Seq</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Spec Sheet Box -->
+    <div class="rounded-2xl border border-lab-200 bg-white p-6 sm:p-10 shadow-sm">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+
+        <div class="flex flex-col sm:flex-row items-start gap-6 max-w-2xl">
+
+          <!-- Photo / Specimen Portrait Frame -->
+          {% if site.data.profile.photo %}
+          <div class="shrink-0 relative group mx-auto sm:mx-0">
+            <div class="relative h-36 w-36 sm:h-44 sm:w-44 rounded-2xl overflow-hidden border border-lab-200/90 bg-lab-100/50 shadow-sm ring-1 ring-lab-300/60">
+              {% include profile-image.html loading="eager" %}
+            </div>
+            <!-- Decorative Tech Corner Reticles -->
+            <span class="absolute -top-1 -left-1 h-3 w-3 border-t-2 border-l-2 border-bio-600" aria-hidden="true"></span>
+            <span class="absolute -bottom-1 -right-1 h-3 w-3 border-b-2 border-r-2 border-bio-600" aria-hidden="true"></span>
+          </div>
+          {% endif %}
+
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-2 rounded-full border border-bio-200 bg-bio-50/90 px-3 py-1 text-xs font-mono font-semibold text-bio-900">
+              <span class="h-1.5 w-1.5 rounded-full bg-bio-600 motion-safe:animate-pulse" aria-hidden="true"></span>
+              <span>{{ site.data.profile.specialization }}</span>
+            </div>
+
+            <h1 id="hero-name" class="text-3xl sm:text-5xl font-bold tracking-tight text-lab-950 font-sans">
+              {{ site.data.profile.name }}
+            </h1>
+
+            <p class="text-base sm:text-lg text-bio-900 font-semibold font-sans">
+              {{ site.data.profile.title }}
+            </p>
+
+            <p class="text-sm sm:text-base text-lab-700 leading-relaxed">
+              {{ site.data.profile.tagline }}
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono">
+              <span class="inline-flex items-center gap-1.5 rounded-md bg-lab-100 px-2.5 py-1 text-lab-800 border border-lab-200">
+                <span role="img" aria-label="Institution">🏛️</span> {{ site.data.profile.institution }}
+              </span>
+              <span class="inline-flex items-center gap-1.5 rounded-md bg-lab-100 px-2.5 py-1 text-lab-800 border border-lab-200">
+                <span role="img" aria-label="Location">📍</span> {{ site.data.profile.location }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Social / Academic Badges -->
+        <nav aria-label="Academic Profiles & Data Repositories" class="flex flex-col gap-2.5 sm:w-64 border-t lg:border-t-0 lg:border-l border-lab-200 pt-6 lg:pt-0 lg:pl-8">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-lab-500">// Quick Connect</span>
+
+          <a href="{{ site.data.profile.contact.scholar_url }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-lg border border-lab-200 bg-lab-50 px-3 py-2 text-xs font-mono text-lab-900 transition hover:border-bio-500 hover:bg-bio-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="Google Scholar Profile for {{ site.data.profile.name }} (opens in a new tab)">
+            <span class="flex items-center gap-2">
+              <span class="text-bio-700" aria-hidden="true">📖</span> Google Scholar
+            </span>
+            <span class="text-lab-500 text-[10px]" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="{{ site.data.profile.contact.orcid_url }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-lg border border-lab-200 bg-lab-50 px-3 py-2 text-xs font-mono text-lab-900 transition hover:border-bio-500 hover:bg-bio-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="ORCID Record {{ site.data.profile.contact.orcid }} (opens in a new tab)">
+            <span class="flex items-center gap-2">
+              <span class="text-bio-700" aria-hidden="true">🆔</span> ORCID Record
+            </span>
+            <span class="text-lab-500 text-[10px]" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="{{ site.data.profile.contact.github_url }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-lg border border-lab-200 bg-lab-50 px-3 py-2 text-xs font-mono text-lab-900 transition hover:border-bio-500 hover:bg-bio-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="GitHub and Repositories (opens in a new tab)">
+            <span class="flex items-center gap-2">
+              <span class="text-bio-700" aria-hidden="true">💻</span> GitHub
+            </span>
+            <span class="text-lab-500 text-[10px]" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="{{ site.data.profile.contact.researchgate_url }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-lg border border-lab-200 bg-lab-50 px-3 py-2 text-xs font-mono text-lab-900 transition hover:border-bio-500 hover:bg-bio-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="ResearchGate Academic Profile (opens in a new tab)">
+            <span class="flex items-center gap-2">
+              <span class="text-bio-700" aria-hidden="true">🔬</span> ResearchGate
+            </span>
+            <span class="text-lab-500 text-[10px]" aria-hidden="true">↗</span>
+          </a>
+        </nav>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SECTION 02: Publications & Preprints                                      -->
+  <!-- ========================================================================= -->
+  <section id="publications" aria-labelledby="publications-heading" class="scroll-mt-24 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-lab-200 pb-3">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">02.</span>
+        <h2 id="publications-heading" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">Recent Publications</h2>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="{{ site.data.profile.contact.scholar_url }}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono font-medium text-bio-800 hover:text-bio-950 underline underline-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded whitespace-nowrap" aria-label="View full publication list on Google Scholar (opens in a new tab)">
+          <span class="sm:hidden">Scholar ↗</span>
+          <span class="hidden sm:inline">Google Scholar Profile ↗</span>
+          <span class="sr-only">(opens in a new tab)</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      {% for pub in site.data.publications %}
+      <article class="lab-card rounded-xl border border-lab-200 bg-white p-5 sm:p-6 shadow-sm hover:border-bio-400" aria-labelledby="pub-title-{{ forloop.index }}">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+
+          <div class="space-y-2 flex-1">
+            <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+              {% if pub.status == "Published" %}
+                <span class="rounded bg-emerald-100 text-emerald-900 border border-emerald-300 px-2 py-0.5 font-bold">
+                  ● {{ pub.status }}
+                </span>
+              {% else %}
+                <span class="rounded bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 font-bold">
+                  ⚡ {{ pub.status }}
+                </span>
+              {% endif %}
+              <span class="text-lab-700 font-bold">{{ pub.journal }} ({{ pub.year }})</span>
+              <span class="text-lab-400" aria-hidden="true">•</span>
+              <span class="text-lab-600">{{ pub.type }}</span>
+            </div>
+
+            <h3 id="pub-title-{{ forloop.index }}" class="text-base sm:text-lg font-bold text-lab-900 leading-snug">
+              {{ pub.title }}
+            </h3>
+
+            <p class="text-xs sm:text-sm font-mono text-lab-700">
+              {{ pub.authors }}
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 pt-2" aria-label="Publication tags">
+              {% for tag in pub.tags %}
+              <span class="rounded bg-lab-100 px-2 py-0.5 text-[11px] font-mono text-lab-700 border border-lab-200">
+                #{{ tag }}
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+
+          <!-- Publication Action Links -->
+          <div class="flex flex-wrap sm:flex-col gap-2 pt-3 sm:pt-0 border-t sm:border-t-0 border-lab-100 sm:w-36 text-xs font-mono shrink-0">
+            {% if pub.doi_url %}
+            <a href="{{ pub.doi_url }}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial flex items-center justify-between rounded border border-lab-200 bg-lab-50 px-2.5 py-1.5 text-lab-800 hover:border-bio-500 hover:bg-bio-50 hover:text-bio-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="DOI Link for {{ pub.title }} (opens in a new tab)">
+              <span>DOI link</span>
+              <span aria-hidden="true">↗</span>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            {% endif %}
+
+            {% if pub.code_url %}
+            <a href="{{ pub.code_url }}" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial flex items-center justify-between rounded border border-lab-200 bg-lab-50 px-2.5 py-1.5 text-lab-800 hover:border-bio-500 hover:bg-bio-50 hover:text-bio-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="Code and Data for {{ pub.title }} on GitHub (opens in a new tab)">
+              <span>Code/Data</span>
+              <span aria-hidden="true">💻</span>
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+            {% endif %}
+
+            {% if pub.pdf_url %}
+            <a href="{{ pub.pdf_url }}" class="flex-1 sm:flex-initial flex items-center justify-between rounded bg-bio-800 px-2.5 py-1.5 text-white hover:bg-bio-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600" aria-label="Download PDF for {{ pub.title }}">
+              <span>PDF Copy</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            {% endif %}
+          </div>
+
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if site.posts.size > 0 %}
+  <section id="posts" aria-labelledby="posts-heading" class="scroll-mt-24 space-y-6">
+    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-lab-200 pb-3">
+      <div class="flex items-center gap-3">
+        <span class="font-mono text-sm font-bold text-bio-700" aria-hidden="true">03.</span>
+        <h2 id="posts-heading" class="text-xl sm:text-2xl font-bold tracking-tight text-lab-900">Recent Posts</h2>
+      </div>
+      <a href="{{ '/posts/' | relative_url }}" class="text-xs font-mono font-medium text-bio-800 hover:text-bio-950 underline underline-offset-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-bio-600 rounded">View all posts</a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
+      {% for post in site.posts limit: 3 %}
+      <article class="lab-card flex flex-col rounded-xl border border-lab-200 bg-white p-5 shadow-sm hover:border-bio-400" aria-labelledby="recent-post-{{ forloop.index }}">
+        <p class="font-mono text-xs text-lab-600">{{ post.date | date: "%B %-d, %Y" }}</p>
+        <h3 id="recent-post-{{ forloop.index }}" class="mt-3 text-base font-bold leading-snug text-lab-900"><a href="{{ post.url | relative_url }}" class="hover:text-bio-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600 rounded">{{ post.title }}</a></h3>
+        {% if post.description %}<p class="mt-2 text-sm leading-relaxed text-lab-700">{{ post.description }}</p>{% elsif post.excerpt %}<p class="mt-2 text-sm leading-relaxed text-lab-700">{{ post.excerpt | strip_html }}</p>{% endif %}
+        <a href="{{ post.url | relative_url }}" class="mt-5 text-xs font-mono font-semibold text-bio-800 hover:text-bio-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-bio-600 rounded">Read post <span aria-hidden="true">→</span></a>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</div>

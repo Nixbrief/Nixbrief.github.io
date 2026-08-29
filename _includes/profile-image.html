@@ -1,0 +1,26 @@
+<picture>
+  <source
+    type="image/webp"
+    srcset="{{ '/assets/images/profile-176w.webp' | relative_url }} 176w,
+            {{ '/assets/images/profile-352w.webp' | relative_url }} 352w,
+            {{ '/assets/images/profile-528w.webp' | relative_url }} 528w"
+    sizes="(min-width: 640px) 176px, 144px"
+  >
+  <source
+    type="image/jpeg"
+    srcset="{{ '/assets/images/profile-176w.jpg' | relative_url }} 176w,
+            {{ '/assets/images/profile-352w.jpg' | relative_url }} 352w,
+            {{ '/assets/images/profile-528w.jpg' | relative_url }} 528w"
+    sizes="(min-width: 640px) 176px, 144px"
+  >
+  <img
+    src="{{ site.data.profile.photo | relative_url }}"
+    alt="{{ site.data.profile.photo_alt | default: site.data.profile.name }}"
+    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    width="176"
+    height="176"
+    loading="{{ include.loading | default: 'lazy' }}"
+    decoding="async"
+    {% if include.loading == 'eager' %}fetchpriority="high"{% endif %}
+  >
+</picture>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#064e3b"/>
+  <!-- Glowing subtle border -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#10b981" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- BV Monogram + Leaf / Helix Accent -->
+  <path fill="#f0fdf4" d="M18 18h12c7.5 0 11.5 3.5 11.5 9 0 3.8-2 6.5-5 7.5 4 1 6 4 6 8.5 0 6.5-5 10-13 10H18V18Zm7 6v7.5h4.5c2.5 0 4-.9 4-3.8 0-2.8-1.5-3.7-4-3.7H25Zm0 13.5v8.5h5.5c3 0 4.5-1 4.5-4.2s-1.5-4.3-4.5-4.3H25Z"/>
+  <!-- Small DNA / Leaf Bioluminescent Node -->
+  <circle cx="47" cy="19" r="4" fill="#34d399"/>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4" />
+      <stop offset="100%" stop-color="#dcfce7" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <!-- Subtle Grid Pattern -->
+    <pattern id="labGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#cbd5e1" stroke-width="0.75" stroke-opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="400" height="400" fill="url(#bgGrad)" />
+  <rect width="400" height="400" fill="url(#labGrid)" />
+
+  <!-- Outer Tech Border & Corner Markers -->
+  <rect x="12" y="12" width="376" height="376" fill="none" stroke="#059669" stroke-width="1.5" stroke-dasharray="8 4" stroke-opacity="0.4" rx="16"/>
+  
+  <!-- Corner Targets -->
+  <path d="M 24 40 L 24 24 L 40 24" fill="none" stroke="#047857" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 376 40 L 376 24 L 360 24" fill="none" stroke="#047857" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 24 360 L 24 376 L 40 376" fill="none" stroke="#047857" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 376 360 L 376 376 L 360 376" fill="none" stroke="#047857" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Center Botanical / Molecular Decorative Ring -->
+  <circle cx="200" cy="185" r="110" fill="#ffffff" stroke="#a7f3d0" stroke-width="2" filter="drop-shadow(0 4px 12px rgba(4,120,87,0.08))"/>
+  <circle cx="200" cy="185" r="118" fill="none" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4 6" stroke-opacity="0.6"/>
+
+  <!-- Stylized Scientist Avatar Silhouette -->
+  <!-- Head -->
+  <circle cx="200" cy="150" r="46" fill="url(#primaryGrad)" />
+  <!-- Hair / Bun Accent -->
+  <circle cx="200" cy="100" r="18" fill="url(#primaryGrad)" />
+  <!-- Shoulders / Lab Coat Silhouette -->
+  <path d="M 120 270 C 120 215, 155 205, 200 205 C 245 205, 280 215, 280 270 C 280 285, 120 285, 120 270 Z" fill="url(#primaryGrad)"/>
+  
+  <!-- Lab Coat Collar V-Neck -->
+  <path d="M 185 205 L 200 245 L 215 205" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="200" y1="245" x2="200" y2="280" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Molecular Leaf Nodes floating on the side -->
+  <!-- Left Leaf/DNA Node -->
+  <g transform="translate(60, 160)">
+    <circle cx="0" cy="0" r="14" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <path d="M -5 5 C -5 -5, 5 -5, 5 5 C 5 12, -5 12, -5 5 Z" fill="#10b981" transform="rotate(-30)"/>
+  </g>
+  <line x1="74" y1="160" x2="90" y2="165" stroke="#059669" stroke-width="1.5" stroke-dasharray="2 3"/>
+
+  <!-- Right DNA Helix Node -->
+  <g transform="translate(340, 160)">
+    <circle cx="0" cy="0" r="14" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6" fill="#0284c7"/>
+  </g>
+  <line x1="326" y1="160" x2="310" y2="165" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="2 3"/>
+
+  <!-- Bottom Technical Badge -->
+  <rect x="90" y="315" width="220" height="32" rx="6" fill="#ffffff" stroke="#047857" stroke-width="1.5"/>
+  <text x="200" y="336" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle" letter-spacing="1.5">
+    PHOTO_PLACEHOLDER
+  </text>
+
+  <!-- Top System Tag -->
+  <rect x="120" y="35" width="160" height="22" rx="4" fill="#064e3b"/>
+  <text x="200" y="50" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#a7f3d0" text-anchor="middle" letter-spacing="1">
+    RESEARCHER_ID: BV_01
+  </text>
+</svg>
